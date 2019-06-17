@@ -1,0 +1,44 @@
+<html>
+<body>
+
+<!-- Script that converts the query string into valid parameter -->
+<script type="text/javascript">
+function searchPrimolimit() {
+document.getElementById("primoQuerylimit").value = "any,contains," + document.getElementById("primoQueryTemplimit").value.replace(/[,]/g, " ");
+document.forms["searchFormlimit"].submit();
+}
+</script>
+
+<!--Important form code -->
+<form id="simplelimit" name="searchFormlimit" method="get" target="_blank" action="<Your-Primo-Library-URL>/discovery/search" enctype="application/x-www-form-urlencoded; charset=utf-8" onsubmit="searchPrimo()">
+<!-- Customizable Parameters -->
+<input type="hidden" name="vid" value="<Your-Primo-Library-Code>">
+<input type="hidden" name="tab" value="LibraryCatalog">
+<input type="hidden" name="mode" value="basic"> 
+<!-- to add  more than one resouce type
+	add another hidden input with the same name=mfacet" -->
+<input type="hidden" name="mfacet" value="rtype,include,books,1">
+
+<!-- Hidden, fixed fields for Primo -->
+<input type="hidden" name="displayMode" value="full">
+<input type="hidden" name="bulkSize" value="20">
+<input type="hidden" name="highlight" value="true">
+<input type="hidden" name="dum" value="true">
+<input type="hidden" name="query" id="primoQuerylimit">
+<input type="hidden" name="displayField" value="all">
+
+<!-- Enable this if "Expand My Results" is enabled by default in Views Wizard -->
+<input type="hidden" name="pcAvailabiltyMode" value="false">
+
+
+<!-- Section start- This is for testing -->
+<label for="primoQueryTemplimit" class="sr-only">Enter your search terms</label>
+<span class="libformwidth">
+	<input type="text" id="primoQueryTemplimit" value="" class="searchBox">
+	<button id="golimit" onclick="searchPrimolimit()" type="submit" alt="Search" class="o-btn btn-green eds-search-btn" style="box-shadow:none; padding:.9rem 1.5rem; margin: 0.2em 0 0 0;"><span class="fa fa-search" aria-hidden="true"></span><span class="sr-only">Search</span></button>
+</span>
+<!-- Section end- This is for testing -->
+</form>
+
+</body>
+</html>

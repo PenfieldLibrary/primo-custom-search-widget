@@ -28,5 +28,6 @@ This form search widget to add to a library website
 Example:
 ```html
 <input type="hidden" name="mfacet" value="rtype,include,books,1">
-<input type="hidden" name="mfacet" value="rtype,include,journals,1">
+<input type="hidden" name="mfacet" value="rtype,include,journals,2">
+<input type="hidden" name="mfacet" value="rtype,include,articles,3">
 ```
